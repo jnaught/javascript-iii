@@ -38,19 +38,29 @@ var employees = [{
 
               /* vvv-Code Is Broken-vvv */
 function employeeUpdater() {   //create function employeeUpdater.
-  for (var i = 0; i < employees; i++) { //loop through employees.
-    var obj = employees[i];    // declare var for new object from loop.
-    for (var prop in obj) {     // loop through object.
-      if(obj[prop] === "Theo") {  // check object for match to 'Theo'.
-        employees.splice(i,1)     // remove 'Theo' from object.
-      }
-      if(obj[prop] === "Lorie") {   // check object for match to 'Lorie'.
-        obj['department'] = 'HR'   //change value of "department: 'Research adnd Development'" to "department: 'HR'".
+  //  // declare var for new object from loop.
+  //   for (var prop in employees) { 
+  //     console.log(obj);    // loop through object.
+  //     if(employees[prop] === "Theo") {  // check object for match to 'Theo'.
+  //       employees.splice(i,1)     // remove 'Theo' from object.
+  //     }
+  //     else if(employees[prop] === "Lorie") {   // check object for match to 'Lorie'.
+  //       employees['department'] = 'HR'   //change value of "department: 'Research adnd Development'" to "department: 'HR'".
+  //     }
+  //   }
+  employees.map((indivEmployee,index) => {
+    for (var key in indivEmployee){
+      if (indivEmployee[key] === "Theo"){
+        employees.splice(index,1)
+      } else if (indivEmployee[key] === "Lorie"){
+        indivEmployee.department = 'HR'
       }
     }
-  }
+  })
   return employees
 }
+
+employeeUpdater()
              /* ^^^-Code Is Broken-^^^ */
 
 
