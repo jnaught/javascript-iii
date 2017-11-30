@@ -36,33 +36,52 @@ var employees = [{
 //  2. If the employee's first name is Lorie, change her department to 'HR'.
 //  3. Return the updated employee array.
 
-// Code here
-
-
-
-
+              /* vvv-Code Is Broken-vvv */
+function employeeUpdater() {   //create function employeeUpdater.
+  for (var i = 0; i < employees; i++) { //loop through employees.
+    var obj = employees[i];    // declare var for new object from loop.
+    for (var prop in obj) {     // loop through object.
+      if(obj[prop] === "Theo") {  // check object for match to 'Theo'.
+        employees.splice(i,1)     // remove 'Theo' from object.
+      }
+      if(obj[prop] === "Lorie") {   // check object for match to 'Lorie'.
+        obj['department'] = 'HR'   //change value of "department: 'Research adnd Development'" to "department: 'HR'".
+      }
+    }
+  }
+  return employees
+}
+             /* ^^^-Code Is Broken-^^^ */
 
 
 
 // === PROBLEM 2 ==========
 
 
-// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are. 
-// 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
+// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in 
+//duplicates to array, making it look as though there are more accidents this year than there actually are. 
+// 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the 
+//workplaceAccidents array.
 // 2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
 // 3. Return the updated array.
 
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
-// Code here
-
-
-
-
-
-
-
-
+/* vvv-Code Here-vvv */
+function removeDuplicates(arr){ //create function removeDuplicates
+    for (var i = 0; i < arr.length; i++){  // first loop iteration using "var i"
+      for(var j = i + 1; j < arr.length; j++){ // second loop iteration using "var j = i+1"
+        if(arr[i] === arr[j]){    // comparing iterations "i" and "j"
+          arr.splice(i, 1);        //remove duplicates 
+          i--
+          
+        }
+      }
+      
+    }
+    return arr;                   //return results
+}
+/* ^^^-Code Here-^^^ */
 
 
 // === PROBLEM 3 ==========
@@ -84,8 +103,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1]; // give grumpyActivity value of 'eat food.'
+var fluffy2ndFriend = cat.catFriends[1].name;         // give fluffy2ndFriend name value of 'Lazy Bones'.
 
 
 
@@ -95,7 +114,9 @@ var fluffy2ndFriend;
 
 // === PROBLEM 4 ==========
 
-// Below is some information about my car. As you can see, I am not the best driver. I have caused a few accidents. Please update this driving record so that I can feel better about my driving skills.
+// Below is some information about my car. As you can see, I am not the best driver. 
+//I have caused a few accidents. Please update this driving record so that I can feel better 
+//about my driving skills.
 
 // 1. Write a function called recordCleaner.
 // 2. Loop over the accidents array.
@@ -122,11 +143,20 @@ var myCar = {
   ]
 }
 
-// Code here
+    /* vvv-Code Here-vvv */
+var recordCleaner = () => {         // create function recordCleaner.
+	for(var key in myCar){              // loop through object.
+	if(key === 'accidents'){          //match key to 'accidents'.
+		 for(var i = 0; i < myCar.accidents.length; i++){  //loop through accidents key.
+		 	myCar.accidents[i].atFaultForAccident = false; // change atFaultForAccident from 'true' to 'false'.
+		 }
+		}
+	}
+	return myCar              //return all changes to object
+}
 
 
-
-
+      /* ^^^-Code Here-^^^ */
 
 
 
@@ -143,6 +173,19 @@ var myCar = {
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
+      /* vvv-Code Is Broken-vvv */
+      function looper(){
+        for(i = 0; i < numsArr.length; i++){
+          for(j = 1; j < numsArr.length; j++){
+            if( numsArr[i][j]%2===0){
+              numsArr[i][j]="even";
+            }
+            else if(!numsArr[i][j]%2===0){
+              numsArr[i][j]="odd";
+            }
+          }
+        }
+        console.log(numsArr);
+      };
 
-
-
+        /* ^^^-Code Is Broken-^^^ */
